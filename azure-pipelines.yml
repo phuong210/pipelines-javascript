@@ -5,6 +5,12 @@
 
 trigger:
 - main
+- master
+- releases/*
+
+pr:
+- master
+- releases/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -19,11 +25,3 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-
-  strategy:
-    matrix:
-      jdk10:
-        jdk_version: "1.10"
-       jdk11:
-         jdk_version: "1.11"
-      maxParallel: 2
